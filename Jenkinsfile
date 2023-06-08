@@ -18,12 +18,15 @@ def getChangeSet(curBuild) {
     def changeSet = curBuild.rawBuild.changeSets               
     for (int i = 0; i < changeSet.size(); i++) 
     {
-        def entries = changeSet[i].items;
+        def entries = changeSet[i].items
         println("First changeset loop")
-        println(entries);
+        println(entries)
         def entry = entries[0]
-        println(entry);
+        println(entry)
         author += "${entry.author}"
     }
+
+    println("Serializing entire object")
+    println(groovy.json.JsonOutput.toJson(curBUild.rawBuild.changeSets))
     print author;
 }
