@@ -18,7 +18,7 @@ def getChangeSet(curBuild) {
 
     println(changeSet)
 
-    changeSet.each{change ->
+    for (def change : chagneSet) {
         println(change)
     }
    
