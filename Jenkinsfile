@@ -7,6 +7,9 @@ pipeline {
                 script {
                     showChangeLogs()
                 }
+                expression {
++                   sh(returnStatus: true, script: 'git diff  origin/master --name-only')
++               }
             }
         }
     }
