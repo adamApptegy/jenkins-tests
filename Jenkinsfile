@@ -20,13 +20,10 @@ def getChangeSet(curBuild) {
     {
         def entries = changeSet[i].items
         println("First changeset loop")
-        println()
-        println(entries.inspect())
 
-        def entry = entries[0]
-        println()
-        println(entry)
-        author += "${entry.author}"
+        entries.getAffectedFiles().each { entry -> 
+            println(entry.getPath())
+        }
     }
 
     println("Serializing entire object")
