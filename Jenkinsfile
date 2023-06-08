@@ -19,7 +19,7 @@ def getChangeSet(curBuild) {
     println(changeSet)
 
     for (def change : changeSet) {
-        println(change)
+        println(change.getComment())
     }
    
 }
