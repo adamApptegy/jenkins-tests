@@ -14,18 +14,8 @@ pipeline {
 
 def getChangeSet(curBuild) {
     println("getting changesetsome")
-    def author = ""
-    def changeSet = curBuild.rawBuild.changeSets               
-    for (int i = 0; i < changeSet.size(); i++) 
-    {
-        def entries = changeSet[i].items
-        println("First changeset loop")
+    def changeSet = curBuild.changeSets
 
-        entries.getAffectedFiles().each { entry -> 
-            println(entry.getPath())
-        }
-    }
-
-    println("Serializing entire object")
-    print author;
+    println(changeSet)
+   
 }
