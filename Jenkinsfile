@@ -7,7 +7,7 @@ pipeline {
                 script {
                     showChangeLogs()
                 }
-                sh(returnStatus: true, script: 'git diff  origin/master --name-only')
+                sh(returnStatus: true, script: 'git diff origin/main --name-only')
             }
         }
     }
