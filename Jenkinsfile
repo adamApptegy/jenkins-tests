@@ -5,9 +5,29 @@ pipeline {
             steps {
                 git (url: 'https://github.com/adamApptegy/jenkins-tests.git', branch: 'main')
                 script {
-                    println(currentBuild.changeSets) // should print an empty set
+                    getChangeSet(currentBuild)
                 }
             }
         }
     }
+}
+
+def getChangeSet(curBuild) {
+    def author = ""
+    def changeSet = curBuild.rawBuild.changeSets               
+    for (int i = 0; i < changeSet.size(); i++) 
+    {
+        def entries = changeSet[i].items;
+        println("First changeset loop")
+        println(entries);
+        for (int i = 0; i < changeSet.size(); i++) 
+        {
+            def entries = changeSet[i].items;
+            println(entries);
+            def entry = entries[0]
+            println(entry);
+            author += "${entry.author}"
+        } 
+    }
+    print author;
 }
