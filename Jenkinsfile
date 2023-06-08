@@ -7,8 +7,10 @@ pipeline {
                 script {
                     showChangeLogs()
                 }
-                def output = sh(returnStatus: true, script: 'git diff origin/main --name-only', returnStdout: true)
-                echo output
+                script {
+                    def output = sh(returnStatus: true, script: 'git diff origin/main --name-only', returnStdout: true)
+                    echo output
+                }
             }
         }
     }
