@@ -13,7 +13,7 @@ pipeline {
 }
 
 def getChangeSet(curBuild) {
-    println("getting changesetsome change")
+    println("getting changesetsome")
     def author = ""
     def changeSet = curBuild.rawBuild.changeSets               
     for (int i = 0; i < changeSet.size(); i++) 
