@@ -21,7 +21,7 @@ def getChangeSet(curBuild) {
         def entries = changeSet[i].items
         println("First changeset loop")
         println()
-        println(groovy.json.JsonOutput.toJson(entries))
+        println(entries.inspect())
 
         def entry = entries[0]
         println()
