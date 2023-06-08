@@ -27,6 +27,6 @@ def getChangeSet(curBuild) {
     }
 
     println("Serializing entire object")
-    println(groovy.json.JsonOutput.toJson(curBUild.rawBuild.changeSets))
+    println(groovy.json.JsonOutput.toJson(curBuild.rawBuild.changeSets))
     print author;
 }
