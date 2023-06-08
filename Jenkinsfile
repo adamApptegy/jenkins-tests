@@ -3,13 +3,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git (url: 'https://github.com/adamApptegy/jenkins-tests.git', branch: 'main')
+                //git (url: 'https://github.com/adamApptegy/jenkins-tests.git', branch: 'main')
                 script {
                     showChangeLogs()
                 }
                 script {
                     def output = sh(script: 'git diff origin/main --name-only', returnStdout: true)
-                    echo "Output: ${output}"
+                    echo output
                 }
             }
         }
