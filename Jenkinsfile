@@ -1,10 +1,11 @@
 pipeline {
     agent any
     stages {
-        stage("Run tests on branch change")
+        stage("Run tests on branch change") {
             when {
                 expression {
-                return env.BRANCH_NAME != 'master';
+                    return env.BRANCH_NAME != 'master';
+                }
             }
             steps {
                 script {
