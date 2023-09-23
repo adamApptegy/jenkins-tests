@@ -28,7 +28,7 @@ pipeline {
                 script {
                     println("doing a thing")
                     PROJECTS.each() {
-                        echo it
+                        echo it.key
                     }
                 }
             }
