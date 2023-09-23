@@ -34,7 +34,7 @@ pipeline {
                                         echo "This is ${job.key}."
                                         sh script: "sleep 15"
                                 }
-                            }}
+                            }}(it)
                         ]
                     }
                 }
