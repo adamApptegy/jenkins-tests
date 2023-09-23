@@ -1,10 +1,10 @@
 def PROJECTS = [
-    (FIRST_PROJECT): [
+    FIRST_PROJECT: [
         prod: [
             someKey: 'someValue'
         ]
     ],
-    (SECOND_PROJECT): [
+    SECOND_PROJECT: [
         notprod: [
             someKey: 'someValue'
         ]
