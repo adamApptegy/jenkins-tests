@@ -11,19 +11,6 @@ def PROJECTS = [
     ]
 ]
 
-def parallelStagesMap = PROJECTS.collectEntries {
-    ["${it.key}" : generateStage(it)]
-}
-
-def generateStage(job) {
-    return {
-        stage("stage: ${job.key}") {
-                echo "This is ${job.key}."
-                sh script: "sleep 15"
-        }
-    }
-}
-
 
 pipeline {
     agent any
@@ -40,7 +27,16 @@ pipeline {
         stage('Loop') {
             steps {
                 script {
-                    parallel parallelStagesMap
+                    parallel PROJECTS.collectEntries {
+                        ["${it.key}" : 
+                            { job -> return {
+                                stage("stage: ${job.key}") {
+                                        echo "This is ${job.key}."
+                                        sh script: "sleep 15"
+                                }
+                            }}
+                        ]
+                    }
                 }
             }
         }
