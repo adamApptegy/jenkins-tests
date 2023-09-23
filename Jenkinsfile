@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     PROJECTS.each() {
-                        echo it.key
+                        echo it
                     }
                 }
             }
