@@ -26,6 +26,7 @@ pipeline {
         stage('Loop') {
             steps {
                 script {
+                    println("doing a thing")
                     PROJECTS.each() {
                         echo it
                     }
