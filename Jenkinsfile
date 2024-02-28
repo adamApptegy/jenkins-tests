@@ -11,6 +11,7 @@ def PROJECTS = [
     ]
 ]
 
+
 pipeline {
     agent any
     stages {
@@ -26,8 +27,15 @@ pipeline {
         stage('Loop') {
             steps {
                 script {
-                    PROJECTS.each() {
-                        echo it
+                    parallel PROJECTS.collectEntries {
+                        ["${it.key}" : 
+                            { job -> return {
+                                stage("stage: ${job.key}") {
+                                        echo "This is ${job.key}."
+                                        sh script: "sleep 15"
+                                }
+                            }}(it)
+                        ]
                     }
                 }
             }
